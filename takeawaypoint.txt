@@ -1,0 +1,47 @@
+In package json add type:module, if we do so js will support import export feature.
+
+frontend request backend to:
+C:create=>post
+R:read=>get
+U:update=>patch
+D:delete=>delete
+
+Making API frontend request backend and backend does the task according to the request.
+
+url= localhost:5000/trainees/123?name=age&
+age=30
+url=route?query
+route=baseURL + route params
+
+Mongo Database
+WE have to define structure of Data
+define array(model)
+name object
+define object(schema)
+
+Rules of model
+variable name must be same as model name .
+model name first letter always be capital.
+model name must be singular.
+
+
+User,Teacher:age,name,gender,
+Trainee:name,faculty,age,
+Product:name,quantity,price,
+Department:Hod, no.of members
+,Book,Student,classroom,college,
+Review:productId,userId,description
+
+Middleware:
+one must have one response
+function which has request,response,next are called middleware next is used to trigger another middleware
+
+Two types of middleware based on error
+NOrmal middleware= (req,res,next)=>{} to trigger another middleware next()
+error middleware= (req,res,next)=>{} to trigger another middleware next(err)
+
+Two types of middleware based on location
+Route middleware=> defined in route 
+Application middleware=> defined in index.js(or main file)
+
+ 
