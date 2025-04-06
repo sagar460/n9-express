@@ -1,5 +1,5 @@
 // Make Express Application
-import express, {Router, json } from "express";
+import express, { Router, json } from "express";
 import connectMongoDB from "./src/connectDB/mongo.js";
 import userRouter from "./src/routes/userRouter.js";
 import productRouter from "./src/routes/productRouter.js";
@@ -8,13 +8,16 @@ import employeeRouter from "./src/routes/employeeRouter.js";
 import traineeRouter from "./src/routes/traineeRouter.js";
 import reviewRouter from "./src/routes/reviewRouter.js";
 import webUserRouter from "./src/routes/webUserRouter.js";
+
 import cors from "cors";
 
 import { config } from "dotenv";
 
 import fileRouter from "./src/routes/sendFileRouter.js";
+import bookRouter from "./src/routes/bookRouter.js";
+import randomRouter from "./src/routes/randomRouter.js";
+import foodRouter from "./src/routes/foodRouter.js";
 
- 
 config();
 // console.log(process.env.NAME)
 // console.log(process.env.AGE)
@@ -23,26 +26,29 @@ const MyApp = express();
 MyApp.use(express.static("./public"));
 // localhost:3000
 // Attach
-const port=3000;
+const port = 3000;
 connectMongoDB();
 
 // MyApp.get("/product",(req,res,next)=>{
 //     console.log("hello world")
 // })
-MyApp.use(json());  //read json file 
+MyApp.use(json()); //read json file
 MyApp.use(cors());
 
-MyApp.use("/user",userRouter);
-MyApp.use("/product", productRouter)                                                                                                                                                                                
-MyApp.use("/student", studentRouter)
-MyApp.use("/employee",employeeRouter)
-MyApp.use("/trainee",traineeRouter)
-MyApp.use("/review",reviewRouter)
-MyApp.use("/webUser",webUserRouter)
-MyApp.use("/files",fileRouter)
+MyApp.use("/user", userRouter);
+MyApp.use("/product", productRouter);
+MyApp.use("/student", studentRouter);
+MyApp.use("/employee", employeeRouter);
+MyApp.use("/trainee", traineeRouter);
+MyApp.use("/review", reviewRouter);
+MyApp.use("/webUser", webUserRouter);
+MyApp.use("/files", fileRouter);
+MyApp.use("/book", bookRouter);
+MyApp.use("/random", randomRouter);
+MyApp.use("/food", foodRouter);
 
-MyApp.listen(3000,()=>{ 
-    console.log("express is running at port 3000")
+MyApp.listen(3000, () => {
+  console.log("express is running at port 3000");
 });
 // MyApp.use("/first",firstRouter);
 
@@ -66,6 +72,3 @@ MyApp.listen(3000,()=>{
 // controller
 // routes
 // index
-
-
-
